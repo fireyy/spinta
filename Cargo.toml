@@ -1,0 +1,43 @@
+[package]
+name = "spinta"
+version = "0.1.0"
+authors = ["Fireyy Zhu <fireyy@gmail.com>"]
+description = "Server-sent events client that works natively and on the web (WASM)"
+edition = "2021"
+rust-version = "1.65"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/fireyy/spinta"
+repository = "https://github.com/fireyy/spinta"
+categories = ["web-programming", "wasm"]
+keywords = ["sse", "eventsource", "portable", "native", "web"]
+include = ["LICENSE-APACHE", "LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3.21"
+tracing = "0.1"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+eventsource-client = { version = "0.11.0" }
+tokio = { version = "1.16", features = ["rt", "sync"] }
+futures-util = { version = "0.3", default-features = false, features = [
+  "sink",
+  "std",
+] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+wasm-bindgen-futures = "0.4"
+gloo-events = "0.1.1"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  'Event',
+  'EventSource',
+  'EventSourceInit',
+  'EventListener',
+  'MessageEvent',
+]
