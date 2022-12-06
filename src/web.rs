@@ -29,7 +29,7 @@ pub fn es_connect(url: String, on_event: EventHandler) -> Result<()> {
 pub async fn es_connect_async(url: String, on_event: EventHandler) {
     use wasm_bindgen::JsCast as _;
 
-    let es = new_event_source_with_credentials(&url, true).unwrap();
+    let es = new_event_source(&url).unwrap();
 
     let on_event: std::rc::Rc<dyn Send + Fn(EsEvent) -> std::ops::ControlFlow<()>> =
         on_event.into();
