@@ -1,6 +1,6 @@
 # spinta
 
-This is a simple [WebSocket](https://en.wikipedia.org/wiki/WebSocket) library for Rust which can be compiled to both native and web (WASM).
+This is a simple [`Server-sent events`](https://en.wikipedia.org/wiki/Server-sent_events) client for Rust which can be compiled to both native and web (WASM).
 
 ## Usage
 
