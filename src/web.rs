@@ -39,9 +39,8 @@ pub async fn es_connect_async(url: String, on_event: EventHandler) {
     {
         let on_event = on_event.clone();
         EventListener::new(&es, "error", move |event: &Event| {
-            tracing::info!("error: {:?}", event);
             let on_event = on_event.clone();
-            on_event(EsEvent::Error("Connect failed.".to_string()));
+            on_event(EsEvent::Error(format!("Error: {:?}", event)));
         });
     }
 
@@ -57,7 +56,6 @@ pub async fn es_connect_async(url: String, on_event: EventHandler) {
         EventListener::new(&es, "message", move |event: &Event| {
             let event = event.dyn_ref::<MessageEvent>().unwrap();
             let text = event.data().as_string().expect("expect text data");
-            // let id = event.last_event_id();
             on_event(EsEvent::Message(text));
         });
     }

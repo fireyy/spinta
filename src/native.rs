@@ -26,10 +26,9 @@ async fn es_connect_async(url: String, on_event: EventHandler) {
             Ok(message) => match message {
                 SSE::Event(ev) => {
                     on_event(EsEvent::Message(ev.data));
-                    println!("got an event: {}", ev.event_type);
                 }
                 SSE::Comment(comment) => {
-                    println!("got a comment: \n{}", comment);
+                    on_event(EsEvent::Message(comment));
                 }
             },
             Err(err) => {
