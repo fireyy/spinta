@@ -1,10 +1,10 @@
 [package]
 name = "spinta"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Fireyy Zhu <fireyy@gmail.com>"]
 description = "Server-sent events client that works natively and on the web (WASM)"
 edition = "2021"
-rust-version = "1.65"
+rust-version = "1.60"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/fireyy/spinta"
 repository = "https://github.com/fireyy/spinta"
