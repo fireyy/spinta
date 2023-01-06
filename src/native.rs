@@ -38,6 +38,5 @@ async fn es_connect_async(url: String, on_event: EventHandler) {
         async {}
     });
 
-    futures_util::pin_mut!(reader);
     reader.await;
 }
