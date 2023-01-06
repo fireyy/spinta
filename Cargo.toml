@@ -1,6 +1,6 @@
 [package]
 name = "spinta"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Fireyy Zhu <fireyy@gmail.com>"]
 description = "Server-sent events client that works natively and on the web (WASM)"
 edition = "2021"
