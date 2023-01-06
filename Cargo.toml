@@ -21,10 +21,6 @@ tracing = "0.1"
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 eventsource-client = { version = "0.11.0" }
 tokio = { version = "1.16", features = ["rt", "sync"] }
-futures-util = { version = "0.3", default-features = false, features = [
-  "sink",
-  "std",
-] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen = "0.2"
@@ -41,3 +37,9 @@ features = [
   'EventListener',
   'MessageEvent',
 ]
+
+[dev-dependencies]
+tokio = { version = "1.2.0", features = ["macros", "rt-multi-thread"] }
+
+[[example]]
+name = "demo"
